@@ -7,6 +7,7 @@ class CarGame {
         this.car = new Car(this.canvas);
         this.cubes = [];
         this.particles = [];
+        this.score = 0; // Initialize score
 
         this.updateSettings();
         this.addEventListeners();
@@ -147,9 +148,16 @@ class CarGame {
         }, 100);
     }
 
+    updateScore() {
+        const scoreElement = document.getElementById('score');
+        if (scoreElement) {
+            scoreElement.innerHTML = `Score: ${this.score}`;
+        }
+    }
+
     gameLoop() {
         this.car.move();
-        this.car.updatePosition(this.cubes, this.createParticles.bind(this), this.applyCollisionEffect.bind(this));
+        this.car.updatePosition(this.cubes, this.createParticles.bind(this), this.applyCollisionEffect.bind(this), this.updateScore.bind(this));
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         this.drawCubes();
         this.car.draw(this.ctx);
@@ -201,7 +209,7 @@ class Car {
         if (this.keys['d']) this.speedX = Math.min(this.speedX + this.acceleration, this.maxSpeed);
     }
 
-    updatePosition(cubes, createParticles, applyCollisionEffect) {
+    updatePosition(cubes, createParticles, applyCollisionEffect, updateScore) {
         this.speedX *= (1 - this.friction);
         this.speedY *= (1 - this.friction);
 
@@ -218,6 +226,8 @@ class Car {
                     this.carRadius += cube.size * 0.1;
                     cubes.splice(i, 1);
                     createParticles(cube);
+                    this.score += 10; // Increase score when a cube is eaten
+                    updateScore(); // Update score when a cube is eaten
                 } else {
                     if (nextX + this.carRadius > cube.x && nextX - this.carRadius < cube.x + cube.size) {
                         this.speedX = -this.speedX * 0.5; // Bounce back with reduced speed
