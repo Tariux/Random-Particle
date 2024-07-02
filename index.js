@@ -245,6 +245,9 @@ class Car {
         ctx.scale(this.bounceScale, this.bounceScale);
         ctx.fillStyle = this.carColor;
 
+        ctx.shadowBlur = 20;
+        ctx.shadowColor = 'rgba(0, 0, 0, 0.5)'; // Shadow effect
+
         switch (this.carShape) {
             case 'circle':
                 ctx.beginPath();
@@ -332,6 +335,9 @@ class Cube {
         ctx.rotate(this.angle);
         ctx.fillStyle = this.color;
 
+        ctx.shadowBlur = 20;
+        ctx.shadowColor = 'rgba(0, 0, 0, 0.5)'; // Shadow effect
+
         switch (this.shape) {
             case 'circle':
                 ctx.beginPath();
@@ -406,6 +412,9 @@ class Particle {
         ctx.fillStyle = this.color;
         ctx.save();
         ctx.translate(this.x, this.y);
+
+        ctx.shadowBlur = 20;
+        ctx.shadowColor = 'rgba(0, 0, 0, 0.5)'; // Shadow effect
 
         switch (this.shape) {
             case 'circle':
