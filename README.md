@@ -17,30 +17,17 @@ This document provides a detailed explanation of the `CarGame` class, including 
     - [Methods](#methods)
     - [توابع](#methods)
         - [getRandomColor](#getrandomcolor)
-        - [getRandomColor](#getrandomcolor)
-        - [generateRandomShape](#generaterandomshape)
         - [generateRandomShape](#generaterandomshape)
         - [generateCubes](#generatecubes)
-        - [generateCubes](#generatecubes)
-        - [drawCubes](#drawcubes)
         - [drawCubes](#drawcubes)
         - [drawCar](#drawcar)
-        - [drawCar](#drawcar)
-        - [moveCar](#movecar)
         - [moveCar](#movecar)
         - [updateCarPosition](#updatecarposition)
-        - [updateCarPosition](#updatecarposition)
-        - [createParticles](#createparticles)
         - [createParticles](#createparticles)
         - [drawParticles](#drawparticles)
-        - [drawParticles](#drawparticles)
-        - [applyCollisionEffect](#applycollisioneffect)
         - [applyCollisionEffect](#applycollisioneffect)
         - [updateSettings](#updatesettings)
-        - [updateSettings](#updatesettings)
         - [addEventListeners](#addeventlisteners)
-        - [addEventListeners](#addeventlisteners)
-        - [gameLoop](#gameloop)
         - [gameLoop](#gameloop)
 3. [Physics Concepts](#physics-concepts)
 3. [مفاهیم فیزیکی](#physics-concepts)
@@ -136,8 +123,7 @@ The `CarGame` class incorporates several physics concepts to simulate realistic 
 
 3. **Particle Effects**:
 3. **افکت‌های ذرات**:
-    - Particles are created upon collision to provide a visual representation of the
-    a visual representation of the impact.
+    - Particles are created upon collision to provide a visual representation of the impact.
     - ذرات در هنگام برخورد ایجاد می‌شوند تا نمایشی بصری از تأثیر برخورد ارائه دهند.
     - Each particle has its own velocity and lifespan, simulating debris from the collision.
     - هر ذره دارای سرعت و عمر خود است که شبیه‌سازی بقایای برخورد را انجام می‌دهد.
